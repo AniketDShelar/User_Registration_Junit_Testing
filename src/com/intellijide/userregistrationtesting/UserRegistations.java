@@ -9,7 +9,7 @@ public class UserRegistations {
         user.lastName("Shelar");
         user.email("abc.xyz@bl.co.in");
         user.phoneNumber("91 9175115715");
-        user.password("Abc12233");
+        user.password("Abcd3432");
     }
     public boolean firstName(String firstName) {
         Pattern pattern1 = Pattern.compile("^[A-Z][a-z]{2,}");
@@ -56,7 +56,7 @@ public class UserRegistations {
         return matcher4.matches();
     }
     public boolean password(String password) {
-        Pattern pattern5 = Pattern.compile("[A-za-z0-9]{8,}");
+        Pattern pattern5 = Pattern.compile("[A-Z]+[A-Za-z0-9]{7,}$");
         Matcher matcher5 = pattern5.matcher(password);
         if (matcher5.matches()){
             System.out.println(true);
