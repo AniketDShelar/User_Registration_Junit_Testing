@@ -56,7 +56,7 @@ public class UserRegistations {
         return matcher4.matches();
     }
     public boolean password(String password) {
-        Pattern pattern5 = Pattern.compile("[A-Z]+[A-Za-z0-9]{7,}$");
+        Pattern pattern5 = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$");
         Matcher matcher5 = pattern5.matcher(password);
         if (matcher5.matches()){
             System.out.println(true);
