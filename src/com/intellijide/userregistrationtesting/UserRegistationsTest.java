@@ -29,4 +29,10 @@ public class UserRegistationsTest {
         boolean actual = test.email("abc.xyz@bl.co.in");
         Assertions.assertEquals(true,actual);
     }
+    @Test
+    void givenphoneNumberInCorrectFormatShouldReturnTrue() {
+        test = new UserRegistations();
+        boolean actual = test.phoneNumber("91 9848372837");
+        Assertions.assertEquals(true,actual);
+    }
 }
