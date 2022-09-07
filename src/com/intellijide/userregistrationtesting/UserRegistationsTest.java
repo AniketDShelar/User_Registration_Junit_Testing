@@ -35,4 +35,10 @@ public class UserRegistationsTest {
         boolean actual = test.phoneNumber("91 9848372837");
         Assertions.assertEquals(true,actual);
     }
+    @Test
+    void givenFirstRulePasswordInCorrectFormatShouldReturnTrue() {
+        test = new UserRegistations();
+        boolean actual = test.password("Abc12233");
+        Assertions.assertEquals(true,actual);
+    }
 }
