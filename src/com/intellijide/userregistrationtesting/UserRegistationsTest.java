@@ -17,4 +17,10 @@ public class UserRegistationsTest {
         boolean actual = test.firstName("Aakash");
         Assertions.assertEquals(true,actual);
     }
+    @Test
+    void givenLastNameInCorrectFormatShouldReturnTrue() {
+        test = new UserRegistations();
+        boolean actual = test.firstName("Shelar");
+        Assertions.assertEquals(true,actual);
+    }
 }
