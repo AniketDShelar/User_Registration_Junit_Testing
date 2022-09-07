@@ -7,6 +7,7 @@ public class UserRegistations {
         UserRegistations user = new UserRegistations();
         user.firstName("Aniket");
         user.lastName("Shelar");
+        user.email("abc.xyz@bl.co.in");
     }
     public boolean firstName(String firstName) {
         Pattern pattern1 = Pattern.compile("^[A-Z][a-z]{2,}");
@@ -26,8 +27,19 @@ public class UserRegistations {
             System.out.println(true);
         }else{
             System.out.println(false);
-            System.out.println("Enter Name in valid format, first letter should be capital case and remaining in small case");
+            System.out.println("Enter Last Name in valid format, first letter should be capital case and remaining in small case");
         }
         return matcher2.matches();
+    }
+    public boolean email(String email) {
+        Pattern pattern3 = Pattern.compile("^(abc)[.]?[a-z]*[@](bl)[.](co)[.]?[a-z]*$");
+        Matcher matcher3 = pattern3.matcher(email);
+        if (matcher3.matches()){
+            System.out.println(true);
+        }else{
+            System.out.println(false);
+            System.out.println("Enter Email Id in valid format");
+        }
+        return matcher3.matches();
     }
 }

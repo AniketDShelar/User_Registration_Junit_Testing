@@ -14,13 +14,19 @@ public class UserRegistationsTest {
     @Test
     void givenFirstNameInCorrectFormatShouldReturnTrue() {
         test = new UserRegistations();
-        boolean actual = test.firstName("Aakash");
+        boolean actual = test.firstName("Aniket");
         Assertions.assertEquals(true,actual);
     }
     @Test
     void givenLastNameInCorrectFormatShouldReturnTrue() {
         test = new UserRegistations();
-        boolean actual = test.firstName("Shelar");
+        boolean actual = test.lastName("Shelar");
+        Assertions.assertEquals(true,actual);
+    }
+    @Test
+    void givenEmailIdInCorrectFormatShouldReturnTrue() {
+        test = new UserRegistations();
+        boolean actual = test.email("abc.xyz@bl.co.in");
         Assertions.assertEquals(true,actual);
     }
 }
