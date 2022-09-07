@@ -41,4 +41,10 @@ public class UserRegistationsTest {
         boolean actual = test.password("Abcd@432");
         Assertions.assertEquals(true,actual);
     }
+    @Test
+    void givenEmailSamplesInCorrectFormatShouldReturnTrue() {
+        test = new UserRegistations();
+        boolean actual = test.emailSamples("abc@yahoo.com");
+        Assertions.assertEquals(true,actual);
+    }
 }
