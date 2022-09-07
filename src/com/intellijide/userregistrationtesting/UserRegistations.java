@@ -10,6 +10,7 @@ public class UserRegistations {
         user.email("abc.xyz@bl.co.in");
         user.phoneNumber("91 9175115715");
         user.password("Abcd@3432");
+        user.emailSamples("abc@yahoo.com");
     }
     public boolean firstName(String firstName) {
         Pattern pattern1 = Pattern.compile("^[A-Z][a-z]{2,}");
@@ -65,5 +66,16 @@ public class UserRegistations {
             System.out.println("Enter Password in valid format");
         }
         return matcher5.matches();
+    }
+    public boolean emailSamples(String email) {
+        Pattern pattern6 = Pattern.compile("[a-zA-Z0-9]*[-]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
+        Matcher matcher6 = pattern6.matcher(email);
+        if (matcher6.matches()){
+            System.out.println(true);
+        }else{
+            System.out.println(false);
+            System.out.println("Enter Email Id in valid format");
+        }
+        return matcher6.matches();
     }
 }
