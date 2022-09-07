@@ -38,7 +38,7 @@ public class UserRegistationsTest {
     @Test
     void givenFirstRulePasswordInCorrectFormatShouldReturnTrue() {
         test = new UserRegistations();
-        boolean actual = test.password("Abc12233");
+        boolean actual = test.password("Abcd3432");
         Assertions.assertEquals(true,actual);
     }
 }
