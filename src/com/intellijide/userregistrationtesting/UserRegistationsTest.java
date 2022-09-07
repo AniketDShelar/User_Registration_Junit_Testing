@@ -36,9 +36,9 @@ public class UserRegistationsTest {
         Assertions.assertEquals(true,actual);
     }
     @Test
-    void givenFirstRulePasswordInCorrectFormatShouldReturnTrue() {
+    void givenRulePasswordInCorrectFormatShouldReturnTrue() {
         test = new UserRegistations();
-        boolean actual = test.password("Abcd3432");
+        boolean actual = test.password("Abcd@432");
         Assertions.assertEquals(true,actual);
     }
 }
