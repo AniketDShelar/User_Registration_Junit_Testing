@@ -25,7 +25,7 @@ public class UserRegistrationsTest {
         test = new UserRegistrations();
         boolean actual = false;
         try {
-            actual = test.lastName("shelar");
+            actual = test.lastName("Shelar");
         } catch (Exception e) {
             System.out.println("Invalid Input "+e.getMessage());
         }
