@@ -2,9 +2,9 @@ package com.intellijide.userregistrationtesting;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserRegistations {
+public class UserRegistrations {
     public static void main(String[] args) {
-        UserRegistations user = new UserRegistations();
+        UserRegistrations user = new UserRegistrations();
         user.firstName("Aniket");
         user.lastName("Shelar");
         user.email("abc.xyz@bl.co.in");
@@ -68,7 +68,7 @@ public class UserRegistations {
         return matcher5.matches();
     }
     public boolean emailSamples(String email) {
-        Pattern pattern6 = Pattern.compile("[a-zA-Z0-9]*[-]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
+        Pattern pattern6 = Pattern.compile("[a-zA-Z0-9]*[-]*[.]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
         Matcher matcher6 = pattern6.matcher(email);
         if (matcher6.matches()){
             System.out.println(true);
