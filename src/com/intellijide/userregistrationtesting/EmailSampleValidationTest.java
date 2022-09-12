@@ -1,5 +1,7 @@
 package com.intellijide.userregistrationtesting;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -44,10 +46,10 @@ class EmailSampleValidationTest {
                 {"abc@gmail.com.aa.au", false}
         });
     }
-//    @Test
-//    public void givenEmailIdsWithExpectedResultShouldPassAllTheTestCase() {
-//        test = new EmailSampleValidation();
-//        boolean actual = test.EmailSamples(this.email);
-//        Assertions.assertEquals(this.expected,actual);
-//    }
+    @Test
+    public void givenEmailIdsWithExpectedResultShouldPassAllTheTestCase() {
+        EmailSampleValidation test = new EmailSampleValidation();
+        boolean actual = test.emailSamples(this.email);
+        Assertions.assertEquals(this.expected,actual);
+    }
 }
