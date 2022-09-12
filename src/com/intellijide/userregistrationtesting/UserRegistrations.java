@@ -1,85 +1,86 @@
 package com.intellijide.userregistrationtesting;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserRegistrations{
-    public static void main(String[] args) throws Exception {
-        UserRegistrations user = new UserRegistrations();
-            user.firstName("aniket");
-            user.lastName("Shelar");
-            user.email("abc.xyz@bl.co.in");
-            user.phoneNumber("91 9175115715");
-            user.password("Abcd@3432");
-            user.emailSamples("abc@yahoo.com");
-    }
-    public boolean firstName(String firstName){
-        Pattern pattern1 = Pattern.compile("^[A-Z][a-z]{2,}");
-        Matcher matcher1 = pattern1.matcher(firstName);
-        try{
-        if (matcher1.matches())
-            System.out.println(true);
-        } catch (Exception e) {
-            System.out.println("Invalid Input "+e.getMessage());
+@FunctionalInterface
+interface UserRegistrationvalidation<T> {
+    boolean validation(T parameter);
+
+    public class UserRegistration{
+        public static boolean firstNameValidation(String firstName){
+            UserRegistrationvalidation<String> obj = (fun1) ->{
+                Pattern pattern1 = Pattern.compile("^[A-Z][a-z]{2,}");
+                Matcher matcher1 = pattern1.matcher(fun1);
+                if(matcher1.matches()){
+                    System.out.println(true);
+                }else{
+                    System.out.println(false);
+                }
+                return matcher1.matches();
+            };
+            return obj.validation(firstName);
         }
-        return matcher1.matches();
     }
-    public boolean lastName(String lastName){
-        Pattern pattern2 = Pattern.compile("^[A-Z][a-z]{2,}");
-        Matcher matcher2 = pattern2.matcher(lastName);
-        try{
-            if (matcher2.matches()){
+    public static boolean lastNameValidation(String lastName){
+        UserRegistrationvalidation<String> obj = (fun) ->{
+            Pattern pattern2 = Pattern.compile("^[A-Z][a-z]{2,}");
+            Matcher matcher2 = pattern2.matcher(fun);
+            if(matcher2.matches()){
                 System.out.println(true);
+            }else{
+                System.out.println(false);
             }
-        } catch (Exception e) {
-            System.out.println("Invalid Input "+e.getMessage());
-        }
-        return matcher2.matches();
+            return matcher2.matches();
+        };
+        return obj.validation(lastName);
     }
-    public boolean email(String email){
-        Pattern pattern3 = Pattern.compile("^(abc)[.]?[a-z]*[@](bl)[.](co)[.]?[a-z]*$");
-        Matcher matcher3 = pattern3.matcher(email);
-        try{
-            if (matcher3.matches()){
+    public static boolean emailValidation(String email){
+        UserRegistrationvalidation<String> obj = (fun) ->{
+            Pattern pattern3 = Pattern.compile("^(abc)[.]?[a-z]*[@](bl)[.](co)[.]?[a-z]*$");
+            Matcher matcher3 = pattern3.matcher(fun);
+            if(matcher3.matches()){
                 System.out.println(true);
+            }else{
+                System.out.println(false);
             }
-        } catch (Exception e) {
-            System.out.println("Invalid Input "+e.getMessage());
-        }
-        return matcher3.matches();
+            return matcher3.matches();
+        };
+        return obj.validation(email);
     }
-    public boolean phoneNumber(String mobNumber) throws Exception{
-        Pattern pattern4 = Pattern.compile("^[0-9]{2,}[\s][6-9][0-9]{9}$");
-        Matcher matcher4 = pattern4.matcher(mobNumber);
-        try{
-            if (matcher4.matches()){
+    public static boolean mobNumberValidation(String mobNumber){
+        UserRegistrationvalidation<String> obj = (fun2) ->{
+            Pattern pattern4 = Pattern.compile("^[0-9]{2,}[\s][6-9][0-9]{9}$");
+            Matcher matcher4 = pattern4.matcher(fun2);
+            if(matcher4.matches()){
                 System.out.println(true);
+            }else{
+                System.out.println(false);
             }
-        } catch (Exception e) {
-            System.out.println("Invalid Input "+e.getMessage());
-        }
-        return matcher4.matches();
+            return matcher4.matches();
+        };
+        return obj.validation(mobNumber);
     }
-    public boolean password(String password) throws Exception {
-        Pattern pattern5 = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=[^@#!$%^&+=]*[@#!$%^&+=][^@#!$%^&+=]*$)(?=.*[0-9]).{8,}$");
-        Matcher matcher5 = pattern5.matcher(password);
-        try{
-            if (matcher5.matches()){
+    public static boolean passwordValidation(String password){
+        UserRegistrationvalidation<String> obj = (fun2) ->{
+            Pattern pattern5 = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=[^@#!$%^&+=]*[@#!$%^&+=][^@#!$%^&+=]*$)(?=.*[0-9]).{8,}$");
+            Matcher matcher5 = pattern5.matcher(fun2);
+            if(matcher5.matches()){
                 System.out.println(true);
+            }else{
+                System.out.println(false);
             }
-        } catch (Exception e) {
-            System.out.println("Invalid Input "+e.getMessage());
-        }
-        return matcher5.matches();
+            return matcher5.matches();
+        };
+        return obj.validation(password);
     }
-    public boolean emailSamples(String email) {
-        Pattern pattern6 = Pattern.compile("[a-zA-Z0-9]*[-]*[.]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
-        Matcher matcher6 = pattern6.matcher(email);
-        if (matcher6.matches()){
-            System.out.println(true);
-        }else{
-            System.out.println(false);
-            System.out.println("Enter Email Id in valid format");
-        }
-        return matcher6.matches();
+
+    public static void main(String[] args) {
+        UserRegistration obj1 = new UserRegistration();
+        obj1.firstNameValidation("Aniket");
+        lastNameValidation("Shelar");
+        mobNumberValidation("8292938293");
+        emailValidation("abc.xyz@bl.co.in");
+        passwordValidation("Abcd@1234");
     }
 }
